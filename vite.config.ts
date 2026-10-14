@@ -9,13 +9,13 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'apple-touch-icon-180x180.png'],
+      includeAssets: ['favicon.ico', 'apple-touch-icon-180x180.png'],
       manifest: {
         name: 'Recipe Box',
         short_name: 'Recipe Box',
         description: 'Your personal cookbook.',
         theme_color: '#FFFFFF',
-        background_color: '#FFFFFF',
+        background_color: '#FFFAE6',
         display: 'standalone',
         orientation: 'portrait',
         icons: [

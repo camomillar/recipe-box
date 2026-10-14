@@ -13,7 +13,7 @@ npm test        # caption parser tests
 npm run build
 ```
 
-`npm run icons` regenerates the PNG app icons from `public/favicon.svg`.
+`npm run icons` regenerates the PNG app icons from `public/logo.png`.
 
 ## Deploy
 

@@ -1,7 +1,9 @@
 import { useRef, useState } from 'react';
 import { RecipeImage, Sheet } from './components';
 import { exportBackup, importBackup } from './db';
-import { CategoryIcon, ChefHat, MoreIcon, PlusIcon, SearchIcon } from './icons';
+import chefCat from './assets/chef-cat.png';
+import logo from './assets/logo.png';
+import { MoreIcon, PlusIcon, SearchIcon } from './icons';
 import { CATS, ORDER, kicker, servesLabel, timeLabel, type Category, type Recipe } from './types';
 
 export type Filter = 'all' | Category;
@@ -72,7 +74,7 @@ export function Home({ recipes, query, filter, onQuery, onFilter, onOpen, onAdd,
       <div className="scroll home">
         <div className="brand-row">
           <div className="brand">
-            <span className="logo" aria-hidden="true"><ChefHat /></span>
+            <img className="logo" src={logo} alt="" width={38} height={38} />
             <span className="brand-name">Recipe Box</span>
           </div>
           <button type="button" className="icon-btn tap" aria-label="Backup options" onClick={() => setMenu(true)} style={{ marginRight: -10 }}>
@@ -124,13 +126,7 @@ export function Home({ recipes, query, filter, onQuery, onFilter, onOpen, onAdd,
 
         {total === 0 && (
           <div className="empty first-run">
-            <span className="empty-icons" aria-hidden="true">
-              {ORDER.map((k) => (
-                <span key={k} style={{ background: CATS[k].tint }}>
-                  <CategoryIcon category={k} size={24} strokeWidth={1.6} />
-                </span>
-              ))}
-            </span>
+            <img className="empty-art" src={chefCat} alt="" width={180} height={163} />
             <p>Your cookbook is waiting, chef</p>
             <p>Add your first recipe and it’ll live right here.</p>
             <button type="button" className="pill-dark tap" onClick={onAdd}>Add your first recipe</button>

@@ -40,14 +40,6 @@ export function CategoryIcon({ category, size = 38, strokeWidth = 1.5 }: P & { c
   );
 }
 
-export const ChefHat = () => (
-  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" {...line} strokeWidth={1.9}>
-    <path d="M7 14a4 4 0 1 1 1.6-7.7A4 4 0 0 1 15.4 6.3 4 4 0 1 1 17 14z" />
-    <path d="M7 14v5.5h10V14" />
-    <path d="M7 17h10" />
-  </svg>
-);
-
 export const SearchIcon = () => (
   <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#62666D" strokeWidth="2.2" strokeLinecap="round">
     <circle cx="11" cy="11" r="7" />
