@@ -15,7 +15,7 @@ export default defineConfig({
         short_name: 'Recipe Box',
         description: 'Your personal cookbook.',
         theme_color: '#FFFFFF',
-        background_color: '#FFFAE6',
+        background_color: '#E31414',
         display: 'standalone',
         orientation: 'portrait',
         icons: [

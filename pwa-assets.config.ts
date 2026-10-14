@@ -1,7 +1,7 @@
 import { defineConfig, minimal2023Preset } from '@vite-pwa/assets-generator/config'
 
-// The cream square is the icon itself: no padding, cream behind everything.
-const bg = { background: '#FFFAE6' }
+// The red square is the icon itself: no padding, red behind everything.
+const bg = { background: '#E31414' }
 
 export default defineConfig({
   preset: {

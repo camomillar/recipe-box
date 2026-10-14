@@ -7,6 +7,7 @@
   --card-hover: #f3f4f6;
   --input: #f4f5f7;
   --accent: #ffd43b;
+  --red: #e31414;
   --error: #a3241c;
   --check-border: #c9cdd3;
   --track: #f0f1f3;
@@ -96,6 +97,7 @@ button:disabled { cursor: default; opacity: .7; }
   font-family: var(--font-head); font-weight: 600; font-size: 18px;
 }
 .cta:active { filter: brightness(.96); }
+.cta-red { background: var(--red); color: #fff; }
 .error { margin: 0; color: var(--error); font-weight: 700; font-size: 14px; }
 .thumb {
   flex: 0 0 auto; width: 76px; height: 76px; border-radius: 22px; overflow: hidden;
