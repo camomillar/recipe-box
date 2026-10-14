@@ -9,36 +9,25 @@ db.version(1).stores({
   recipes: 'id, createdAt, category',
 });
 
-type Starter = Omit<Recipe, 'id' | 'createdAt'>;
+// Early versions added six example recipes on first launch. Remove them from
+// devices that still have them, but only if untouched (same title and ingredients),
+// so a recipe someone edited or added themselves is never deleted.
+const OLD_EXAMPLES: Record<string, string> = {
+  'Pão de queijo': '500 g polvilho azedo (sour tapioca starch)',
+  'Weeknight tomato pasta': '200 g spaghetti',
+  Brigadeiro: '1 can condensed milk (395 g)',
+  Caipirinha: '1 lime, cut in wedges',
+  Shakshuka: '1 onion',
+  'Banana oat pancakes': '2 ripe bananas',
+};
 
-const STARTERS: Starter[] = [
-  { title: 'Pão de queijo', category: 'snack', origin: 'Brazilian', time: '45 min', servings: '20 pieces',
-    ingredients: ['500 g polvilho azedo (sour tapioca starch)', '250 ml milk', '120 ml vegetable oil', '1 tsp salt', '2 eggs', '200 g grated Parmesan or Minas cheese'],
-    steps: ['Bring the milk, oil and salt to a boil.', 'Pour it over the polvilho and mix until crumbly.', 'Let it cool a bit, then add the eggs one at a time, kneading well.', 'Add the cheese and knead into a soft, slightly sticky dough.', 'Roll into small balls with oiled hands.', 'Bake at 180 °C for 25–30 minutes until golden.'] },
-  { title: 'Weeknight tomato pasta', category: 'main', origin: 'Italian', time: '25 min', servings: '2',
-    ingredients: ['200 g spaghetti', '1 can whole tomatoes', '3 garlic cloves, sliced', '3 tbsp olive oil', 'Chili flakes', 'Fresh basil', 'Salt'],
-    steps: ['Boil the pasta in well-salted water.', 'Gently fry the garlic and chili in olive oil.', 'Add the tomatoes, crush them and simmer 10 minutes.', 'Toss the pasta with the sauce and a splash of pasta water.', 'Finish with basil.'] },
-  { title: 'Brigadeiro', category: 'sweet', origin: 'Brazilian', time: '20 min', servings: '25 pieces',
-    ingredients: ['1 can condensed milk (395 g)', '1 tbsp butter', '2 tbsp cocoa powder', 'Chocolate sprinkles'],
-    steps: ['Put condensed milk, butter and cocoa in a pan over low heat.', 'Stir until it pulls away from the bottom of the pan.', 'Move to a buttered plate and let it cool.', 'Roll into balls and coat in sprinkles.'] },
-  { title: 'Caipirinha', category: 'drink', origin: 'Brazilian', time: '5 min', servings: '1',
-    ingredients: ['1 lime, cut in wedges', '2 tsp sugar', '50 ml cachaça', 'Crushed ice'],
-    steps: ['Muddle lime and sugar in the glass.', 'Fill with crushed ice.', 'Pour in the cachaça and stir.'] },
-  { title: 'Shakshuka', category: 'main', origin: 'North African', time: '30 min', servings: '2',
-    ingredients: ['1 onion', '1 red pepper', '2 garlic cloves', '1 tsp cumin', '1 tsp paprika', '1 can chopped tomatoes', '4 eggs', 'Feta and parsley to serve'],
-    steps: ['Soften onion and pepper in olive oil.', 'Add garlic and spices, cook 1 minute.', 'Add tomatoes and simmer until thick.', 'Make 4 wells, crack in the eggs, cover until set.', 'Top with feta and parsley.'] },
-  { title: 'Banana oat pancakes', category: 'sweet', origin: '', time: '15 min', servings: '2',
-    ingredients: ['2 ripe bananas', '2 eggs', '80 g oats', '1 tsp baking powder', 'Pinch of cinnamon'],
-    steps: ['Blend everything until smooth.', 'Cook small pancakes in a buttered pan, 2 minutes per side.', 'Serve with honey or fruit.'] },
-];
-
-// Runs once, when the database is first created on this device.
-db.on('populate', (tx) => {
-  const now = Date.now();
-  tx.table('recipes').bulkAdd(
-    STARTERS.map((s, i) => ({ ...s, id: crypto.randomUUID(), createdAt: now - i * 1000 })),
+db.version(2)
+  .stores({ recipes: 'id, createdAt, category' })
+  .upgrade((tx) =>
+    tx.table('recipes')
+      .filter((r: Recipe) => !r.photo && OLD_EXAMPLES[r.title] === r.ingredients[0])
+      .delete(),
   );
-});
 
 export function allRecipes() {
   return db.recipes.orderBy('createdAt').reverse().toArray();

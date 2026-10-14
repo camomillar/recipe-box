@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { RecipeImage, Sheet } from './components';
 import { exportBackup, importBackup } from './db';
-import { ChefHat, MoreIcon, PlusIcon, SearchIcon } from './icons';
+import { CategoryIcon, ChefHat, MoreIcon, PlusIcon, SearchIcon } from './icons';
 import { CATS, ORDER, kicker, servesLabel, timeLabel, type Category, type Recipe } from './types';
 
 export type Filter = 'all' | Category;
@@ -122,7 +122,22 @@ export function Home({ recipes, query, filter, onQuery, onFilter, onOpen, onAdd,
           ))}
         </div>
 
-        {cards.length === 0 && (
+        {total === 0 && (
+          <div className="empty first-run">
+            <span className="empty-icons" aria-hidden="true">
+              {ORDER.map((k) => (
+                <span key={k} style={{ background: CATS[k].tint }}>
+                  <CategoryIcon category={k} size={24} strokeWidth={1.6} />
+                </span>
+              ))}
+            </span>
+            <p>Your cookbook is waiting, chef</p>
+            <p>Add your first recipe and it’ll live right here.</p>
+            <button type="button" className="pill-dark tap" onClick={onAdd}>Add your first recipe</button>
+          </div>
+        )}
+
+        {total > 0 && cards.length === 0 && (
           <div className="empty">
             <p>Not in your cookbook yet, chef</p>
             <p>Try another word or add it as a new recipe.</p>

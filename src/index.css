@@ -152,8 +152,8 @@ button:disabled { cursor: default; opacity: .7; }
   background: #f7f8fa; border-radius: 24px; text-align: center;
 }
 .empty p { margin: 0; }
-.empty p:first-child { font-family: var(--font-head); font-weight: 600; font-size: 20px; }
-.empty p:nth-child(2) { font-size: 15px; color: var(--muted); }
+.empty p:first-of-type { font-family: var(--font-head); font-weight: 600; font-size: 20px; }
+.empty p:nth-of-type(2) { font-size: 15px; color: var(--muted); }
 .empty .pill-dark { min-height: 44px; }
 
 /* ---------- recipe ---------- */
@@ -294,3 +294,10 @@ legend { padding: 0; margin-bottom: 8px; font-weight: 500; font-size: 14px; }
 }
 .sheet-btn.danger { background: var(--error); color: #fff; }
 .sheet-btn.plain { background: transparent; }
+
+/* first launch: nothing in the cookbook yet */
+.empty.first-run { padding-top: 28px; }
+.empty-icons { display: flex; gap: 8px; margin-bottom: 6px; }
+.empty-icons span {
+  width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--ink);
+}
