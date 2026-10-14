@@ -10,7 +10,7 @@
   --error: #a3241c;
   --check-border: #c9cdd3;
   --track: #f0f1f3;
-  --blush: #ffd2d2;
+  --blush: #ffe6e6;
   --pad: 22px;
   --font-head: 'Outfit', system-ui, sans-serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
@@ -106,6 +106,7 @@ button:disabled { cursor: default; opacity: .7; }
 
 /* ---------- home ---------- */
 .home { padding: calc(22px + var(--safe-top)) var(--pad) calc(120px + var(--safe-bottom)); gap: 20px; }
+.home.no-bar { padding-bottom: calc(32px + var(--safe-bottom)); }
 .brand-row { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
 .brand { display: flex; align-items: center; gap: 10px; }
 .logo { display: block; width: 38px; height: 38px; border-radius: 12px; object-fit: cover; }
@@ -298,3 +299,25 @@ legend { padding: 0; margin-bottom: 8px; font-weight: 500; font-size: 14px; }
 .empty.first-run p:first-of-type { font-family: var(--font-body); font-weight: 400; font-size: 15px; color: var(--muted); }
 .empty.first-run p:nth-of-type(2) { font-size: 17px; line-height: 1.4; color: var(--ink); }
 .empty.first-run .pill-dark { min-height: 48px; padding: 0 22px; font-size: 16px; margin-top: 4px; }
+
+/* ---------- onboarding ---------- */
+.onboarding {
+  background: var(--accent); color: #fff;
+  padding: calc(60px + var(--safe-top)) 0 0;
+}
+.onboarding-text { padding: 0 37px; display: flex; flex-direction: column; gap: 22px; }
+.onboarding h1 { margin: 0; font-family: var(--font-head); font-weight: 600; font-size: 52px; line-height: 1.2; letter-spacing: -.5px; }
+.onboarding p { margin: 0; font-size: 17px; line-height: 1.45; }
+.onboarding-art { display: block; width: 284px; height: auto; margin: 40px auto 0; }
+.onboarding-bottom { margin-top: auto; padding: 24px var(--pad) calc(26px + var(--safe-bottom) * .6); }
+.onboarding-btn {
+  width: 100%; min-height: 56px; border: 0; border-radius: 999px; background: #fff; color: var(--accent);
+  font-family: var(--font-head); font-weight: 600; font-size: 18px;
+}
+.onboarding-btn:active { filter: brightness(.95); }
+.onboarding .tap:focus-visible { outline-color: #fff; }
+@media (max-height: 700px) {
+  .onboarding { padding-top: calc(36px + var(--safe-top)); }
+  .onboarding h1 { font-size: 42px; }
+  .onboarding-art { width: 210px; margin-top: 24px; }
+}

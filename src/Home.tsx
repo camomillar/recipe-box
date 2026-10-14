@@ -71,7 +71,7 @@ export function Home({ recipes, query, filter, onQuery, onFilter, onOpen, onAdd,
 
   return (
     <div className="screen">
-      <div className="scroll home">
+      <div className={total > 0 ? 'scroll home' : 'scroll home no-bar'}>
         <div className="brand-row">
           <div className="brand">
             <img className="logo" src={logo} alt="" width={38} height={38} />
@@ -144,12 +144,15 @@ export function Home({ recipes, query, filter, onQuery, onFilter, onOpen, onAdd,
         )}
       </div>
 
-      <div className="bottom-bar">
-        <button type="button" className="cta tap" onClick={onAdd}>
-          <PlusIcon />
-          New recipe
-        </button>
-      </div>
+      {/* An empty cookbook has its own "Add your first recipe" button. */}
+      {total > 0 && (
+        <div className="bottom-bar">
+          <button type="button" className="cta tap" onClick={onAdd}>
+            <PlusIcon />
+            New recipe
+          </button>
+        </div>
+      )}
 
       <input
         ref={restoreInput}

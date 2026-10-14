@@ -2,6 +2,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { allRecipes, db } from './db';
 import { Home, type Filter } from './Home';
+import { Onboarding } from './Onboarding';
 import { RecipeForm } from './RecipeForm';
 import { RecipeView } from './RecipeView';
 
@@ -31,7 +32,19 @@ function back(fallback: string) {
   }
 }
 
+// The welcome screen shows once per device, until "Let's get cooking" is tapped.
+const ONBOARDED_KEY = 'recipe-box:onboarded';
+
+function readOnboarded() {
+  try {
+    return localStorage.getItem(ONBOARDED_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
 export default function App() {
+  const [onboarded, setOnboarded] = useState(readOnboarded);
   const route = useHashRoute();
   const recipes = useLiveQuery(allRecipes);
   const [query, setQuery] = useState('');
@@ -50,6 +63,23 @@ export default function App() {
   useEffect(() => {
     document.querySelector('.scroll')?.scrollTo(0, 0);
   }, [route.name, route.id]);
+
+  if (!onboarded) {
+    return (
+      <div className="app">
+        <Onboarding
+          onStart={() => {
+            try {
+              localStorage.setItem(ONBOARDED_KEY, '1');
+            } catch {
+              /* private mode: show it again next time, no harm */
+            }
+            setOnboarded(true);
+          }}
+        />
+      </div>
+    );
+  }
 
   if (!recipes) return <div className="app" />;
 
