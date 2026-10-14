@@ -8,6 +8,8 @@ Built with Vite + React + TypeScript, Dexie and vite-plugin-pwa. Fonts are bundl
 
 **App:** https://camomillar.github.io/recipe-box/
 
+![Recipe Box screens: the red welcome screen, the cookbook with saved recipes, and the new recipe form](design/showcase.png)
+
 ## Install on your phone
 
 It's free, there's no sign-up, and it works offline. Open the link above on your phone and follow the steps.
