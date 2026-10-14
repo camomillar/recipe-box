@@ -10,7 +10,7 @@
   --error: #a3241c;
   --check-border: #c9cdd3;
   --track: #f0f1f3;
-  --mint: #d3f1e4;
+  --blush: #ffd2d2;
   --pad: 22px;
   --font-head: 'Outfit', system-ui, sans-serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
@@ -208,10 +208,10 @@ button:disabled { cursor: default; opacity: .7; }
 .intro { display: flex; flex-direction: column; gap: 4px; }
 .intro h2 { margin: 0; font-family: var(--font-head); font-weight: 600; font-size: 28px; line-height: 1.15; letter-spacing: -.3px; }
 .intro p { margin: 0; font-size: 15px; color: var(--muted); }
-.importer { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 22px; background: var(--mint); flex: 0 0 auto; }
+.importer { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 22px; background: var(--blush); flex: 0 0 auto; }
 .importer-title { display: flex; flex-direction: column; gap: 2px; }
 .importer-title span:first-child { font-family: var(--font-head); font-weight: 600; font-size: 17px; }
-.importer-title span:last-child { font-size: 14px; line-height: 1.4; color: #2c3a33; }
+.importer-title span:last-child { font-size: 14px; line-height: 1.4; color: #3a2b2b; }
 .stack { display: flex; flex-direction: column; gap: 10px; }
 .segmented { display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(255, 255, 255, .7); }
 .segmented button {
@@ -221,7 +221,7 @@ button:disabled { cursor: default; opacity: .7; }
 .segmented button[aria-pressed='true'] { background: var(--ink); color: #fff; }
 .shot-drop {
   display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 92px; padding: 16px;
-  border: 2px dashed #8fcdb2; border-radius: 14px; background: #fff; color: var(--ink);
+  border: 2px dashed #f0a3a3; border-radius: 14px; background: #fff; color: var(--ink);
   font-weight: 500; font-size: 15px; cursor: pointer; text-align: center;
 }
 .shot-row { display: flex; align-items: center; gap: 12px; }
