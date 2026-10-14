@@ -13,6 +13,7 @@
   --blush: #ffe6e6;
   --pad: 22px;
   --font-head: 'Outfit', system-ui, sans-serif;
+  --font-display: 'Darumadrop One', 'Outfit', system-ui, sans-serif; /* big titles */
   --font-body: 'DM Sans', system-ui, sans-serif;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -111,7 +112,7 @@ button:disabled { cursor: default; opacity: .7; }
 .brand { display: flex; align-items: center; gap: 10px; }
 .logo { display: block; width: 38px; height: 38px; border-radius: 12px; object-fit: cover; }
 .brand-name { font-family: var(--font-head); font-weight: 600; font-size: 18px; }
-.home h1 { margin: 0; font-family: var(--font-head); font-weight: 600; font-size: 30px; line-height: 1.15; letter-spacing: -.3px; }
+.home h1 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 32px; line-height: 1.15; letter-spacing: 0; text-wrap: balance; }
 .search {
   display: flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 16px;
   background: var(--card); border-radius: 16px; flex: 0 0 auto;
@@ -159,7 +160,7 @@ button:disabled { cursor: default; opacity: .7; }
 .top-row { display: flex; align-items: center; justify-content: space-between; margin: 0 -10px; }
 .title-block { display: flex; flex-direction: column; gap: 6px; margin-top: -8px; }
 .kicker { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-.title-block h2 { margin: 0; font-family: var(--font-head); font-weight: 600; font-size: 32px; line-height: 1.1; letter-spacing: -.3px; }
+.title-block h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 34px; line-height: 1.1; letter-spacing: 0; text-wrap: balance; }
 .hero {
   flex: 0 0 auto; width: 100%; height: 280px; border-radius: 20px; overflow: hidden;
   display: flex; align-items: center; justify-content: center; color: var(--ink);
@@ -207,7 +208,7 @@ button:disabled { cursor: default; opacity: .7; }
 .form-top > span:nth-child(2) { font-size: 14px; color: var(--muted); }
 .form-body { padding: 4px var(--pad) 24px; gap: 18px; }
 .intro { display: flex; flex-direction: column; gap: 4px; }
-.intro h2 { margin: 0; font-family: var(--font-head); font-weight: 600; font-size: 28px; line-height: 1.15; letter-spacing: -.3px; }
+.intro h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 30px; line-height: 1.15; letter-spacing: 0; text-wrap: balance; }
 .intro p { margin: 0; font-size: 15px; color: var(--muted); }
 .importer { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 22px; background: var(--blush); flex: 0 0 auto; }
 .importer-title { display: flex; flex-direction: column; gap: 2px; }
@@ -306,7 +307,7 @@ legend { padding: 0; margin-bottom: 8px; font-weight: 500; font-size: 14px; }
   padding: calc(60px + var(--safe-top)) 0 0;
 }
 .onboarding-text { padding: 0 37px; display: flex; flex-direction: column; gap: 22px; }
-.onboarding h1 { margin: 0; font-family: var(--font-head); font-weight: 600; font-size: 52px; line-height: 1.2; letter-spacing: -.5px; }
+.onboarding h1 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 52px; line-height: 1.12; letter-spacing: 0; }
 .onboarding p { margin: 0; font-size: 17px; line-height: 1.45; }
 .onboarding-art { display: block; width: 284px; height: auto; margin: 40px auto 0; }
 .onboarding-bottom { margin-top: auto; padding: 24px var(--pad) calc(26px + var(--safe-bottom) * .6); }
