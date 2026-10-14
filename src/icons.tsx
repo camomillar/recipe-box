@@ -28,6 +28,37 @@ export function CategoryIcon({ category, size = 38, strokeWidth = 1.5 }: P & { c
           <path d="M9 9.5v1M12 8.5v1M15 9.5v1" />
         </>
       )}
+      {category === 'savory' && (
+        <>
+          <path d="M3 13h18l-1.8 6H4.8z" />
+          <path d="M4.5 13c1.2-3.6 4.3-6 7.5-6s6.3 2.4 7.5 6" />
+          <path d="M9.5 9.8l.8 1.4M14.5 9.8l-.8 1.4" />
+        </>
+      )}
+      {category === 'breakfast' && (
+        <>
+          <path d="M7.5 5.5c2-2.4 6.5-1.8 8 .8 3-.2 5.2 2.8 4.3 5.8-1 3.8-5.6 6.4-9.8 5.6S3.2 13.6 4.2 9.8c.5-1.9 1.7-3.3 3.3-4.3z" />
+          <circle cx="12" cy="11.5" r="2.8" />
+        </>
+      )}
+      {category === 'bakery' && (
+        <>
+          <path d="M3.5 20h17" />
+          <path d="M5 20v-6h14v6" />
+          <path d="M6.5 14v-3h11v3" />
+          <path d="M5 17c1.2 1 2.3 1 3.5 0s2.3-1 3.5 0 2.3 1 3.5 0 2.3-1 3.5 0" />
+          <path d="M12 11V8.5" />
+          <path d="M12 6.8c-.7-.7-.7-1.6 0-2.8.7 1.2.7 2.1 0 2.8z" />
+        </>
+      )}
+      {category === 'salad' && (
+        <>
+          <path d="M3 12h18a9 8 0 0 1-18 0z" />
+          <path d="M9.5 12c0-4.2 2.8-7 7-7 0 4.2-2.8 7-7 7z" />
+          <path d="M12 9.5l-2.5 2.5" />
+          <path d="M5.5 12c.3-2.2 1.5-3.6 3.2-4.2" />
+        </>
+      )}
       {category === 'drink' && (
         <>
           <path d="M6 6h12l-1.5 14h-9z" />
@@ -97,13 +128,6 @@ export const ListIcon = () => (
 export const CheckIcon = ({ size = 13, strokeWidth = 3.6 }: P) => (
   <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" {...line} strokeWidth={strokeWidth}>
     <path d="M5 12.5l4.5 4.5L19 7.5" />
-  </svg>
-);
-
-export const PhoneIcon = () => (
-  <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" {...line} strokeWidth={1.8}>
-    <rect x="6" y="2.5" width="12" height="19" rx="2.5" />
-    <path d="M9 7h6M9 10.5h6M9 14h4" />
   </svg>
 );
 

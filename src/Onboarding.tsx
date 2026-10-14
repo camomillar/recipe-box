@@ -16,7 +16,7 @@ export function Onboarding({ onStart }: { onStart: () => void }) {
     <div className="screen onboarding">
       <div className="onboarding-text">
         <h1>Every recipe you love,<br /> in one place</h1>
-        <p>Family classics, video finds and your own creations, ready whenever you're hungry.</p>
+        <p>Family classics, new favorites and your own creations, ready whenever you're hungry.</p>
       </div>
       <img className="onboarding-art" src={chefCatWhite} alt="" width={284} height={257} />
       <div className="onboarding-bottom">

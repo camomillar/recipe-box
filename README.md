@@ -2,7 +2,7 @@
 
 A personal recipe app you can install on your phone's home screen. Recipes and photos live on the device (IndexedDB), and it works offline.
 
-Built with Vite + React + TypeScript, Dexie, vite-plugin-pwa and Tesseract.js (on-device screenshot reading, loaded only when used).
+Built with Vite + React + TypeScript, Dexie and vite-plugin-pwa. Fonts are bundled (no Google Fonts requests).
 
 ## Develop
 

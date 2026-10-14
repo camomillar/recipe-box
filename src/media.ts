@@ -32,15 +32,3 @@ export function useBlobUrl(blob?: Blob): string {
   }, [blob]);
   return url;
 }
-
-// On-device OCR. Tesseract is only downloaded the first time this runs.
-export async function readTextFromImage(image: Blob): Promise<string> {
-  const { createWorker } = await import('tesseract.js');
-  const worker = await createWorker(['eng', 'por']);
-  try {
-    const { data } = await worker.recognize(image);
-    return data.text;
-  } finally {
-    await worker.terminate();
-  }
-}

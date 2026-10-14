@@ -1,5 +1,5 @@
 import Dexie, { type EntityTable } from 'dexie';
-import type { Category, Recipe } from './types';
+import { ORDER, type Category, type Recipe } from './types';
 
 export const db = new Dexie('recipe-box') as Dexie & {
   recipes: EntityTable<Recipe, 'id'>;
@@ -58,8 +58,6 @@ export async function exportBackup(): Promise<Blob> {
   });
 }
 
-const CATEGORIES: Category[] = ['main', 'snack', 'sweet', 'drink'];
-
 export async function importBackup(file: File): Promise<number> {
   const data = JSON.parse(await file.text());
   const list: unknown[] = Array.isArray(data) ? data : data?.recipes;
@@ -70,7 +68,7 @@ export async function importBackup(file: File): Promise<number> {
     recipes.push({
       id: typeof raw.id === 'string' ? raw.id : crypto.randomUUID(),
       title: raw.title,
-      category: CATEGORIES.includes(raw.category as Category) ? (raw.category as Category) : 'main',
+      category: ORDER.includes(raw.category as Category) ? (raw.category as Category) : 'main',
       origin: raw.origin || '',
       time: raw.time || '',
       servings: raw.servings || '',

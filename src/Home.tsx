@@ -16,12 +16,13 @@ interface Props {
   onFilter: (f: Filter) => void;
   onOpen: (id: string) => void;
   onAdd: () => void;
+  onPrivacy: () => void;
   toast: (msg: string) => void;
 }
 
 const FILTERS: [Filter, string][] = [['all', 'All'], ...ORDER.map((k): [Filter, string] => [k, CATS[k].label])];
 
-export function Home({ recipes, query, filter, onQuery, onFilter, onOpen, onAdd, toast }: Props) {
+export function Home({ recipes, query, filter, onQuery, onFilter, onOpen, onAdd, onPrivacy, toast }: Props) {
   const [menu, setMenu] = useState(false);
   const restoreInput = useRef<HTMLInputElement>(null);
 
@@ -77,7 +78,7 @@ export function Home({ recipes, query, filter, onQuery, onFilter, onOpen, onAdd,
             <img className="logo" src={logo} alt="" width={38} height={38} />
             <span className="brand-name">Recipe Box</span>
           </div>
-          <button type="button" className="icon-btn tap" aria-label="Backup options" onClick={() => setMenu(true)} style={{ marginRight: -10 }}>
+          <button type="button" className="icon-btn tap" aria-label="More options" onClick={() => setMenu(true)} style={{ marginRight: -10 }}>
             <MoreIcon />
           </button>
         </div>
@@ -163,13 +164,14 @@ export function Home({ recipes, query, filter, onQuery, onFilter, onOpen, onAdd,
       />
 
       {menu && (
-        <Sheet label="Backup" onClose={() => setMenu(false)}>
+        <Sheet label="More options" onClose={() => setMenu(false)}>
           <h2>Keep your recipes safe</h2>
           <p>Your cookbook lives only on this phone. Save a backup file now and then.</p>
           <button type="button" className="sheet-btn tap" onClick={backup}>Back up recipes</button>
           <button type="button" className="sheet-btn tap" onClick={() => { setMenu(false); restoreInput.current?.click(); }}>
             Restore from backup
           </button>
+          <button type="button" className="sheet-btn tap" onClick={() => { setMenu(false); onPrivacy(); }}>Privacy</button>
           <button type="button" className="sheet-btn plain tap" onClick={() => setMenu(false)}>Cancel</button>
         </Sheet>
       )}

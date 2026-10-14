@@ -3,10 +3,11 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { allRecipes, db } from './db';
 import { Home, type Filter } from './Home';
 import { Onboarding } from './Onboarding';
+import { Privacy } from './Privacy';
 import { RecipeForm } from './RecipeForm';
 import { RecipeView } from './RecipeView';
 
-// Hash routes: #/  #/recipe/:id  #/new  #/edit/:id
+// Hash routes: #/  #/recipe/:id  #/new  #/edit/:id  #/privacy
 function useHashRoute() {
   const [hash, setHash] = useState(() => location.hash);
   useEffect(() => {
@@ -86,7 +87,9 @@ export default function App() {
   const current = route.id ? recipes.find((r) => r.id === route.id) : undefined;
   let screen;
 
-  if (route.name === 'recipe' && current) {
+  if (route.name === 'privacy') {
+    screen = <Privacy onBack={() => back('#/')} />;
+  } else if (route.name === 'recipe' && current) {
     screen = (
       <RecipeView
         recipe={current}
@@ -132,6 +135,7 @@ export default function App() {
         onFilter={setFilter}
         onOpen={(id) => go(`#/recipe/${id}`)}
         onAdd={() => go('#/new')}
+        onPrivacy={() => go('#/privacy')}
         toast={showToast}
       />
     );
