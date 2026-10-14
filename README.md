@@ -1,5 +1,7 @@
 # Recipe Box
 
+<p align="center"><img src="design/banner.png" alt="The Recipe Box cat chef holding a whisk and a mixing bowl" width="600"></p>
+
 A personal recipe app you can install on your phone's home screen. Recipes and photos live on the device (IndexedDB), and it works offline.
 
 Built with Vite + React + TypeScript, Dexie and vite-plugin-pwa. Fonts are bundled (no Google Fonts requests).
