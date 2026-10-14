@@ -6,29 +6,9 @@ Built with Vite + React + TypeScript, Dexie and vite-plugin-pwa. Fonts are bundl
 
 **App:** https://camomillar.github.io/recipe-box/
 
-## Como instalar no celular
-
-É grátis, sem cadastro e funciona até sem internet. Abra o link acima no celular e siga os passos.
-
-### No iPhone (use o Safari)
-
-1. Abra o link no **Safari**.
-2. Toque em **Compartilhar** na barra de baixo. Em iPhones mais novos, ele pode estar dentro do botão **⋯**.
-3. Role a lista e toque em **Adicionar à Tela de Início**.
-4. Toque em **Adicionar**, no canto de cima.
-
-### No Android (use o Chrome)
-
-1. Abra o link no **Chrome**.
-2. Toque no menu **⋮** no canto de cima.
-3. Toque em **Instalar app** ou **Adicionar à tela inicial**.
-4. Confirme em **Instalar**.
-
-Prontinho, chef! Abra o Recipe Box pelo ícone do gatinho na tela inicial.
-
-Suas receitas e fotos ficam só no seu celular. De vez em quando, faça um backup pelo menu **⋯** do app.
-
 ## Install on your phone
+
+It's free, there's no sign-up, and it works offline. Open the link above on your phone and follow the steps.
 
 ### iPhone (Safari)
 
