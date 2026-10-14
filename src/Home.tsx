@@ -145,7 +145,7 @@ export function Home({ recipes, query, filter, onQuery, onFilter, onOpen, onAdd,
       </div>
 
       <div className="bottom-bar">
-        <button type="button" className="cta cta-red tap" onClick={onAdd}>
+        <button type="button" className="cta tap" onClick={onAdd}>
           <PlusIcon />
           New recipe
         </button>
